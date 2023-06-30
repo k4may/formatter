@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'formatter';
+  jsonString = '';
+  formattedJson = ''; 
+
+  formatJson() {
+    try {
+      const jsonObject = JSON.parse(this.jsonString);
+      this.formattedJson = JSON.stringify(jsonObject, null, 2);
+    } catch (error) {
+      console.error('Erro ao formatar JSON:', error);
+    }
+  }
 }
